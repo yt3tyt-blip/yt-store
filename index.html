@@ -1,116 +1,556 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<title>متجر Yt</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yt | متجر رقمي عصري</title>
+  <meta name="description" content="Yt — واجهة متجر رقمي عصرية ببطاقات أنيقة وألوان حديثة." />
 
-<style>
-body {
-  margin: 0;
-  font-family: "Tahoma", Arial;
-  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-  color: #fff;
-}
+  <!-- Google Fonts: Cairo -->
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
-header {
-  padding: 20px;
-  text-align: center;
-  font-size: 26px;
-  font-weight: bold;
-  background: rgba(0,0,0,0.3);
-}
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-.container {
-  padding: 20px;
-}
+  <style>
+    :root {
+      --bg-start: #0f1222;
+      --bg-end: #131735;
+      --primary: #6c5ce7; /* بنفسجي */
+      --primary-2: #4b7bec; /* أزرق */
+      --accent: #00d4ff; /* سماوي */
+      --text: #ffffff;
+      --text-muted: #c9c9d3;
+      --card-bg: #1a1f3c;
+      --card-border: #2a315a;
+      --success: #2ecc71;
+      --warning: #f1c40f;
+      --danger: #ff4757;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      --radius: 18px;
+      --radius-sm: 12px;
+      --radius-lg: 28px;
+      --container: 1200px;
+      --spacing: 24px;
+    }
 
-.section-title {
-  margin: 25px 0 15px;
-  font-size: 20px;
-  border-right: 5px solid #00eaff;
-  padding-right: 10px;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 15px;
-}
+    html, body {
+      height: 100%;
+      background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+      color: var(--text);
+      font-family: "Cairo", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      margin: 0;
+    }
 
-.card {
-  background: rgba(255,255,255,0.08);
-  border-radius: 15px;
-  padding: 15px;
-  transition: 0.3s;
-}
+    a { color: inherit; text-decoration: none; }
 
-.card:hover {
-  transform: translateY(-5px);
-  background: rgba(255,255,255,0.15);
-}
+    .container {
+      width: min(100%, var(--container));
+      margin-inline: auto;
+      padding: 0 20px;
+    }
 
-.card h3 {
-  margin: 0 0 10px;
-}
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(8px);
+      background: linear-gradient(180deg, rgba(19, 23, 53, 0.9), rgba(19, 23, 53, 0.6));
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
 
-.card p {
-  font-size: 14px;
-  color: #ddd;
-}
+    .nav {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 12px;
+      min-height: 72px;
+    }
 
-.card a {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 8px 15px;
-  background: #00eaff;
-  color: #000;
-  border-radius: 20px;
-  text-decoration: none;
-  font-weight: bold;
-}
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+    }
 
-footer {
-  text-align: center;
-  padding: 15px;
-  font-size: 13px;
-  color: #ccc;
-  background: rgba(0,0,0,0.3);
-}
-</style>
+    .brand-logo {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: grid;
+      place-items: center;
+      color: #0b1022;
+      font-size: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    .nav-links a {
+      padding: 10px 14px;
+      border-radius: 10px;
+      color: var(--text-muted);
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .nav-actions {
+      display: flex;
+      justify-content: end;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-weight: 600;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      color: white;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 12px 32px rgba(108, 92, 231, 0.35);
+    }
+
+    .btn-ghost {
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 64px 0 48px;
+    }
+
+    .hero-wrap {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .hero-card {
+      background: radial-gradient(1200px 500px at 90% -10%, rgba(108, 92, 231, 0.25), transparent),
+                  radial-gradient(800px 400px at -10% 120%, rgba(0, 212, 255, 0.18), transparent),
+                  linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-lg);
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-title {
+      font-size: 42px;
+      line-height: 1.2;
+      margin: 0 0 12px;
+      letter-spacing: 0.3px;
+    }
+
+    .hero-sub {
+      color: var(--text-muted);
+      font-size: 18px;
+      margin: 0 0 22px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-muted);
+      font-weight: 600;
+      width: fit-content;
+      margin-bottom: 14px;
+    }
+
+    .stat {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text-muted);
+      margin-top: 18px;
+    }
+
+    .stat i {
+      color: var(--accent);
+    }
+
+    /* Section heading */
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin: 26px 0 16px;
+    }
+
+    .section-title {
+      font-size: 28px;
+      margin: 0;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 16px;
+      margin: 8px 0 0;
+    }
+
+    /* Cards grid */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(26, 31, 60, 0.98), rgba(26, 31, 60, 0.9));
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      transition: transform 0.15s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.45);
+      border-color: rgba(75, 123, 236, 0.6);
+    }
+
+    .card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 10px;
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      color: #0b1022;
+      background: linear-gradient(135deg, var(--accent), var(--primary-2));
+      box-shadow: var(--shadow);
+      font-size: 20px;
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin: 0 0 6px;
+    }
+
+    .card-desc {
+      color: var(--text-muted);
+      font-size: 15px;
+      margin: 0 0 12px;
+      min-height: 44px;
+    }
+
+    .price {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-muted);
+    }
+
+    .card-actions {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .link {
+      color: var(--primary-2);
+      font-weight: 700;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 44px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      background: linear-gradient(180deg, rgba(19, 23, 53, 0.6), rgba(19, 23, 53, 0.9));
+    }
+
+    .footer-wrap {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 20px;
+      padding: 26px 0;
+    }
+
+    .social {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .social a {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .social a:hover {
+      color: var(--text);
+      border-color: rgba(75, 123, 236, 0.5);
+      background: rgba(75, 123, 236, 0.1);
+    }
+
+    .copyright {
+      color: var(--text-muted);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .hero-wrap { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-wrap { grid-template-columns: 1fr; }
+      .nav { grid-template-columns: 1fr auto; }
+      .nav-links { display: none; }
+    }
+
+    @media (max-width: 640px) {
+      .hero { padding: 48px 0 34px; }
+      .hero-title { font-size: 32px; }
+      .grid { grid-template-columns: 1fr; }
+      .brand-logo { width: 36px; height: 36px; font-size: 18px; }
+      .btn { padding: 10px 14px; }
+      .card { padding: 16px; }
+    }
+  </style>
 </head>
-
 <body>
 
-<header>
-  متجر Yt – ألعاب وملفات
-</header>
+  <!-- Header -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="brand-logo" aria-label="شعار Yt">Yt</div>
+        <div>Yt</div>
+      </div>
 
-<div class="container">
+      <nav class="nav-links" aria-label="روابط رئيسية">
+        <a href="#products">المنتجات</a>
+        <a href="#about">من نحن</a>
+        <a href="#contact">تواصل</a>
+      </nav>
 
-  <div class="section-title">🎮 الألعاب</div>
-  <div class="cards">
-    <div class="card">
-      <h3>لعبة تجريبية</h3>
-      <p>وصف بسيط للعبة هنا</p>
-      <a href="#">تحميل</a>
+      <div class="nav-actions">
+        <a class="btn btn-ghost" href="#contact"><i class="fa-regular fa-envelope"></i> تواصل</a>
+        <a class="btn btn-primary" href="#products"><i class="fa-solid fa-bag-shopping"></i> تسوّق الآن</a>
+      </div>
     </div>
-  </div>
+  </header>
 
-  <div class="section-title">📁 ملفات عامة</div>
-  <div class="cards">
-    <div class="card">
-      <h3>ملف مثال</h3>
-      <p>وصف مختصر للملف</p>
-      <a href="#">تحميل</a>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container hero-wrap">
+      <div class="hero-card">
+        <div class="hero-badge"><i class="fa-solid fa-sparkles"></i> تصميم عصري — متجر رقمي</div>
+        <h1 class="hero-title">مرحبًا بك في Yt</h1>
+        <p class="hero-sub">تجربة تسوّق أنيقة وسريعة بواجهات بطاقات، أيقونات حديثة، وخط واضح يناسب الجوال والكمبيوتر.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#products"><i class="fa-solid fa-bolt"></i> ابدأ التصفّح</a>
+          <a class="btn btn-ghost" href="#about"><i class="fa-regular fa-circle-question"></i> اكتشف المزيد</a>
+        </div>
+        <div class="stat">
+          <i class="fa-solid fa-shield-check"></i>
+          <span>تصميم ثابت وفعّال على GitHub Pages — بدون جافاسكربت.</span>
+        </div>
+      </div>
+
+      <div class="hero-card" aria-label="مزايا الخدمة">
+        <div class="section-title" style="margin-bottom:10px;">لماذا Yt؟</div>
+        <div class="section-sub">نمنحك واجهة عصرية خفيفة وسهلة التخصيص لعرض منتجاتك وخدماتك.</div>
+        <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px;">
+          <div class="pill"><i class="fa-solid fa-mobile-screen"></i> متجاوب بالكامل</div>
+          <div class="pill"><i class="fa-solid fa-palette"></i> ألوان عصرية</div>
+          <div class="pill"><i class="fa-solid fa-layer-group"></i> بطاقات أنيقة</div>
+          <div class="pill"><i class="fa-regular fa-face-smile"></i> خط واضح</div>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
 
-</div>
+  <!-- Products -->
+  <section id="products" class="container">
+    <div class="section-head">
+      <div>
+        <h2 class="section-title">منتجات مختارة</h2>
+        <p class="section-sub">استعرض باقة من المنتجات الرقمية المصمّمة بعناية.</p>
+      </div>
+      <a class="btn btn-ghost" href="#"><i class="fa-solid fa-sliders"></i> تصفية</a>
+    </div>
 
-<footer>
-  © 2026 متجر Yt | المؤسس: Yt
-</footer>
+    <div class="grid">
+
+      <!-- Product 1 -->
+      <article class="card">
+        <div class="card-head">
+          <div class="card-icon"><i class="fa-solid fa-star"></i></div>
+          <span class="pill"><i class="fa-solid fa-fire"></i> شائع</span>
+        </div>
+        <h3 class="card-title">حزمة أيقونات احترافية</h3>
+        <p class="card-desc">مجموعة أيقونات حديثة بصيغة SVG تناسب مواقع المتاجر والتطبيقات.</p>
+        <div class="price"><i class="fa-solid fa-tag"></i> 19$</div>
+        <div class="card-actions">
+          <a class="btn btn-primary" href="#"><i class="fa-solid fa-download"></i> شراء الآن</a>
+          <a class="link" href="#"><i class="fa-regular fa-eye"></i> التفاصيل</a>
+        </div>
+      </article>
+
+      <!-- Product 2 -->
+      <article class="card">
+        <div class="card-head">
+          <div class="card-icon" style="background:linear-gradient(135deg, var(--primary), var(--warning));">
+            <i class="fa-solid fa-code"></i>
+          </div>
+          <span class="pill"><i class="fa-regular fa-clock"></i> إصدار جديد</span>
+        </div>
+        <h3 class="card-title">قوالب صفحات هبوط</h3>
+        <p class="card-desc">نماذج صفحات هبوط متجاوبة مبنية بـ HTML5 و CSS3 مع أسلوب نظيف.</p>
+        <div class="price"><i class="fa-solid fa-tag"></i> 24$</div>
+        <div class="card-actions">
+          <a class="btn btn-primary" href="#"><i class="fa-solid fa-cart-shopping"></i> إضافة للسلة</a>
+          <a class="link" href="#"><i class="fa-regular fa-eye"></i> المعاينة</a>
+        </div>
+      </article>
+
+      <!-- Product 3 -->
+      <article class="card">
+        <div class="card-head">
+          <div class="card-icon" style="background:linear-gradient(135deg, var(--primary-2), var(--accent));">
+            <i class="fa-solid fa-file-lines"></i>
+          </div>
+          <span class="pill"><i class="fa-solid fa-shield-heart"></i> ضمان</span>
+        </div>
+        <h3 class="card-title">دليل العمل الحر</h3>
+        <p class="card-desc">كتيّب شامل لإطلاق عملك الحر عبر الإنترنت مع نصائح عملية.</p>
+        <div class="price"><i class="fa-solid fa-tag"></i> 12$</div>
+        <div class="card-actions">
+          <a class="btn btn-primary" href="#"><i class="fa-solid fa-bolt"></i> اشترِ فورًا</a>
+          <a class="link" href="#"><i class="fa-regular fa-eye"></i> المزيد</a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="container" style="margin-top: 34px;">
+    <div class="section-head">
+      <div>
+        <h2 class="section-title">عن Yt</h2>
+        <p class="section-sub">متجر رقمي يقدّم تجربة استخدام أنيقة، سريعة، ومتوافقة مع GitHub Pages.</p>
+      </div>
+    </div>
+    <div class="card" style="display:grid; gap: 8px;">
+      <p class="card-desc" style="min-height:auto;">
+        نقدّم لك قالبًا ثابتًا بدون جافاسكربت، يسهل نشره على GitHub Pages، مع تصميم بطاقات، أيقونات، وألوان متوازنة.
+      </p>
+      <div class="pill"><i class="fa-regular fa-circle-check"></i> قابل للتخصيص بالكامل</div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="container" style="margin-top: 34px;">
+    <div class="section-head">
+      <div>
+        <h2 class="section-title">تواصل معنا</h2>
+        <p class="section-sub">يسعدنا سماع اقتراحاتك واحتياجاتك.</p>
+      </div>
+    </div>
+    <div class="card">
+      <p class="card-desc" style="min-height:auto;">
+        راسلنا عبر البريد أو الشبكات الاجتماعية وسنعود إليك في أقرب وقت.
+      </p>
+      <div class="social" style="margin-top: 8px;">
+        <a href="#" aria-label="البريد"><i class="fa-regular fa-envelope"></i> بريد</a>
+        <a href="#" aria-label="تويتر"><i class="fa-brands fa-x-twitter"></i> تويتر</a>
+        <a href="#" aria-label="إنستغرام"><i class="fa-brands fa-instagram"></i> إنستغرام</a>
+        <a href="#" aria-label="غيتهاب"><i class="fa-brands fa-github"></i> GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-wrap">
+      <div class="brand">
+        <div class="brand-logo">Yt</div>
+        <div>Yt</div>
+      </div>
+      <div class="social" aria-label="روابط التواصل">
+        <a href="#"><i class="fa-brands fa-x-twitter"></i> تويتر</a>
+        <a href="#"><i class="fa-brands fa-instagram"></i> إنستغرام</a>
+        <a href="#"><i class="fa-brands fa-github"></i> GitHub</a>
+      </div>
+    </div>
+    <div class="container" style="padding-bottom: 20px;">
+      <div class="copyright">
+        © 2026 Yt — جميع الحقوق محفوظة.
+      </div>
+    </div>
+  </footer>
 
 </body>
 </html>
