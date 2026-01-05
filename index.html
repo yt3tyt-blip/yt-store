@@ -1,152 +1,116 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-  <meta charset="UTF-8">
-  <title>متجر Yt | ألعاب وملفات</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title>متجر Yt</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- خط جميل -->
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+<style>
+body {
+  margin: 0;
+  font-family: "Tahoma", Arial;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #fff;
+}
 
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Cairo', sans-serif;
-      background: linear-gradient(135deg, #0f172a, #020617);
-      color: #f8fafc;
-      direction: rtl;
-    }
+header {
+  padding: 20px;
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+  background: rgba(0,0,0,0.3);
+}
 
-    header {
-      background: #020617;
-      padding: 20px;
-      text-align: center;
-      font-size: 26px;
-      font-weight: 700;
-      border-bottom: 1px solid #1e293b;
-    }
+.container {
+  padding: 20px;
+}
 
-    .container {
-      padding: 20px;
-      max-width: 900px;
-      margin: auto;
-    }
+.section-title {
+  margin: 25px 0 15px;
+  font-size: 20px;
+  border-right: 5px solid #00eaff;
+  padding-right: 10px;
+}
 
-    .section-title {
-      margin: 30px 0 15px;
-      font-size: 20px;
-      border-right: 5px solid #38bdf8;
-      padding-right: 10px;
-      color: #38bdf8;
-    }
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+}
 
-    .card {
-      background: #020617;
-      border: 1px solid #1e293b;
-      border-radius: 12px;
-      padding: 15px;
-      margin-bottom: 15px;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
+.card {
+  background: rgba(255,255,255,0.08);
+  border-radius: 15px;
+  padding: 15px;
+  transition: 0.3s;
+}
 
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 30px rgba(56,189,248,0.15);
-    }
+.card:hover {
+  transform: translateY(-5px);
+  background: rgba(255,255,255,0.15);
+}
 
-    .card h3 {
-      margin: 0 0 8px;
-    }
+.card h3 {
+  margin: 0 0 10px;
+}
 
-    .card p {
-      margin: 0 0 12px;
-      color: #cbd5f5;
-      font-size: 14px;
-    }
+.card p {
+  font-size: 14px;
+  color: #ddd;
+}
 
-    .card a {
-      display: inline-block;
-      background: #38bdf8;
-      color: #020617;
-      padding: 8px 14px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+.card a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 15px;
+  background: #00eaff;
+  color: #000;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: bold;
+}
 
-    .card a:hover {
-      background: #0ea5e9;
-    }
-
-    footer {
-      text-align: center;
-      padding: 15px;
-      font-size: 14px;
-      color: #94a3b8;
-      border-top: 1px solid #1e293b;
-      margin-top: 30px;
-    }
-
-    /* زر الديسكورد */
-    .discord {
-      position: fixed;
-      bottom: 20px;
-      left: 20px;
-      background: #5865F2;
-      color: white;
-      padding: 12px 16px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-    }
-
-    .discord:hover {
-      background: #4752c4;
-    }
-  </style>
+footer {
+  text-align: center;
+  padding: 15px;
+  font-size: 13px;
+  color: #ccc;
+  background: rgba(0,0,0,0.3);
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  🎮 متجر Yt
+  متجر Yt – ألعاب وملفات
 </header>
 
 <div class="container">
 
-  <div class="section-title">🎯 الألعاب</div>
-
-  <div class="card">
-    <h3>اسم اللعبة</h3>
-    <p>وصف مختصر وجذاب عن اللعبة.</p>
-    <a href="#">تحميل</a>
-  </div>
-
-  <div class="card">
-    <h3>لعبة أخرى</h3>
-    <p>وصف مختصر للعبة الثانية.</p>
-    <a href="#">تحميل</a>
+  <div class="section-title">🎮 الألعاب</div>
+  <div class="cards">
+    <div class="card">
+      <h3>لعبة تجريبية</h3>
+      <p>وصف بسيط للعبة هنا</p>
+      <a href="#">تحميل</a>
+    </div>
   </div>
 
   <div class="section-title">📁 ملفات عامة</div>
-
-  <div class="card">
-    <h3>ملف مفيد</h3>
-    <p>شرح بسيط عن هذا الملف.</p>
-    <a href="#">تحميل</a>
+  <div class="cards">
+    <div class="card">
+      <h3>ملف مثال</h3>
+      <p>وصف مختصر للملف</p>
+      <a href="#">تحميل</a>
+    </div>
   </div>
 
 </div>
 
 <footer>
-  © 2026 متجر Yt — المؤسس: Yt
+  © 2026 متجر Yt | المؤسس: Yt
 </footer>
-
-<!-- رابط الديسكورد -->
-<a class="discord" href="https://discord.gg/1457541560496554196" target="_blank">
-  💬 Discord
-</a>
 
 </body>
 </html>
